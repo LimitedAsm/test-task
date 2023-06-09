@@ -36,17 +36,19 @@ class _NavigationScreenState extends State<NavigationScreen> {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      body: PageView(
-        controller: _pageController,
-        physics: const NeverScrollableScrollPhysics(),
-        children: tabs.map((tab) => tab.screen).toList(),
-      ),
-      bottomNavigationBar: BottomNavigationBar(
-        type: BottomNavigationBarType.fixed,
-        items: tabs.map((tab) => tab.bottomNavigationBarItem).toList(),
-        currentIndex: _selectedIndex,
-        onTap: _onItemTapped,
+    return SafeArea(
+      child: Scaffold(
+        body: PageView(
+          controller: _pageController,
+          physics: const NeverScrollableScrollPhysics(),
+          children: tabs.map((tab) => tab.screen).toList(),
+        ),
+        bottomNavigationBar: BottomNavigationBar(
+          type: BottomNavigationBarType.fixed,
+          items: tabs.map((tab) => tab.bottomNavigationBarItem).toList(),
+          currentIndex: _selectedIndex,
+          onTap: _onItemTapped,
+        ),
       ),
     );
   }

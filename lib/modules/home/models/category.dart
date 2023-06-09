@@ -2,6 +2,8 @@ import 'package:json_annotation/json_annotation.dart';
 
 part 'category.g.dart';
 
+typedef CategoryName = String;
+
 @JsonSerializable(fieldRename: FieldRename.snake)
 class Category {
   Category({
@@ -11,7 +13,7 @@ class Category {
   });
 
   int id;
-  String name;
+  CategoryName name;
   String imageUrl;
 
   factory Category.fromJson(Map<String, dynamic> json) =>
