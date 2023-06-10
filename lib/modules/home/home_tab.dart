@@ -1,9 +1,11 @@
 import 'package:flutter/material.dart';
+
 import 'package:test_task/models/app_tab.dart';
+import 'package:test_task/utils/app_icon.dart';
 
 import 'screens/home_screen.dart';
 
-AppTab buildHomeTab() {
+AppTab buildHomeTab(BuildContext context) {
   return AppTab(
     screen: Navigator(
       onGenerateRoute: (settings) {
@@ -11,8 +13,9 @@ AppTab buildHomeTab() {
         return MaterialPageRoute(builder: (_) => page);
       },
     ),
-    bottomNavigationBarItem: const BottomNavigationBarItem(
-      icon: Icon(Icons.home),
+    bottomNavigationBarItem: BottomNavigationBarItem(
+      activeIcon: AppIcons.home(color: Theme.of(context).colorScheme.primary),
+      icon: AppIcons.home(),
       label: 'Главная',
     ),
   );

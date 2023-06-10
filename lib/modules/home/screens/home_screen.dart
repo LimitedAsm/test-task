@@ -6,14 +6,25 @@ import '../models/category.dart';
 import '../repository/categories.dart';
 import '../widgets/category_preview.dart';
 
-class HomeScreen extends StatelessWidget {
+class HomeScreen extends StatefulWidget {
   const HomeScreen({super.key});
 
   @override
+  State<HomeScreen> createState() => _HomeScreenState();
+}
+
+class _HomeScreenState extends State<HomeScreen>
+    with AutomaticKeepAliveClientMixin<HomeScreen> {
+  final CategoriesRepository categoriesRepository = CategoriesRepository();
+  Future<CategoriesList> categories =
+      CategoriesRepository().retrieveCategoriesList();
+
+  @override
+  bool get wantKeepAlive => true;
+
+  @override
   Widget build(BuildContext context) {
-    final categoriesRepository = CategoriesRepository();
-
-
+    super.build(context);
     return Scaffold(
       appBar: const LocationAppBar(),
       body: Center(
@@ -26,10 +37,9 @@ class HomeScreen extends StatelessWidget {
               return Column(
                 children: List.generate(
                   categories.length,
-                      (index) =>
-                      CategoryPreview(
-                        category: categories.elementAt(index),
-                      ),
+                  (index) => CategoryPreview(
+                    category: categories.elementAt(index),
+                  ),
                 ),
               );
             } else {

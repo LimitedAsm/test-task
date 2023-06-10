@@ -39,11 +39,15 @@ class CategoryPreview extends StatelessWidget {
   }
 
   Widget _buildName(context) {
-    return Padding(
-      padding: const EdgeInsets.only(left: 16, top: 12),
-      child: Text(
-        category.name,
-        style: Theme.of(context).textTheme.titleLarge,
+    double halfWidthScreen = MediaQuery.of(context).size.width / 2;
+    return Container(
+      constraints: BoxConstraints(maxWidth: halfWidthScreen),
+      child: Padding(
+        padding: const EdgeInsets.only(left: 16, top: 12),
+        child: Text(
+          category.name,
+          style: Theme.of(context).textTheme.titleLarge,
+        ),
       ),
     );
   }

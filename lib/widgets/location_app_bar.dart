@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:test_task/utils/app_icon.dart';
 import 'package:test_task/widgets/custom_app_bar.dart';
 
 class LocationAppBar extends StatelessWidget implements PreferredSizeWidget {
@@ -14,9 +15,9 @@ class LocationAppBar extends StatelessWidget implements PreferredSizeWidget {
   Widget _buildLocation(context) {
     return Row(
       children: [
-        Icon(
-          Icons.location_on_outlined,
-          color: Theme.of(context).colorScheme.onBackground,
+        Padding(
+          padding: const EdgeInsets.only(right: 4),
+          child: AppIcons.location,
         ),
         Column(
           crossAxisAlignment: CrossAxisAlignment.start,

@@ -5,25 +5,26 @@ class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
     super.key,
     this.title,
     this.centerTitle,
+    this.leading,
   });
 
   final Widget? title;
   final bool? centerTitle;
+  final Widget? leading;
 
   @override
   Widget build(BuildContext context) {
     return AppBar(
       backgroundColor: Theme.of(context).colorScheme.background,
-      titleTextStyle: Theme.of(context)
-          .textTheme
-          .titleMedium
-          ?.copyWith(fontWeight: FontWeight.w500),
+      titleTextStyle: Theme.of(context).textTheme.titleMedium,
       elevation: 0,
+      leading: leading,
       title: title,
       centerTitle: centerTitle,
       actions: [
-        CircleAvatar(
-          child: Image.asset('assets/avatar.png'),
+        Padding(
+          padding: const EdgeInsets.only(right: 16),
+          child: CircleAvatar(child: Image.asset('assets/avatar.png')),
         ),
       ],
     );

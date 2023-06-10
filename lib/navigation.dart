@@ -16,13 +16,6 @@ class NavigationScreen extends StatefulWidget {
 class _NavigationScreenState extends State<NavigationScreen> {
   int _selectedIndex = 0;
 
-  final List<AppTab> tabs = [
-    buildHomeTab(),
-    buildSearchTab(),
-    buildCardTab(),
-    buildAccountTab(),
-  ];
-
   final PageController _pageController = PageController(initialPage: 0);
 
   void _onItemTapped(int index) {
@@ -36,6 +29,13 @@ class _NavigationScreenState extends State<NavigationScreen> {
 
   @override
   Widget build(BuildContext context) {
+    final List<AppTab> tabs = [
+      buildHomeTab(context),
+      buildSearchTab(context),
+      buildCardTab(context),
+      buildAccountTab(context),
+    ];
+
     return SafeArea(
       child: Scaffold(
         body: PageView(
