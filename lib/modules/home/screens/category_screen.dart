@@ -1,30 +1,56 @@
 import 'package:flutter/material.dart';
-import 'package:test_task/modules/home/screens/product_dialog.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:test_task/modules/home/widgets/category_app_bar.dart';
 
+import '../bloc/dishes/dishes_bloc.dart';
 import '../models/category.dart';
+import '../widgets/dish_tag_list.dart';
+import '../widgets/dishes_list.dart';
 
-class CategoryScreen extends StatefulWidget {
-  const CategoryScreen({super.key, required this.name,});
+class CategoryScreen extends StatelessWidget {
+  const CategoryScreen({
+    super.key,
+    required this.name,
+  });
 
   final CategoryName name;
 
   @override
-  State<CategoryScreen> createState() => _CategoryScreenState();
-}
-
-class _CategoryScreenState extends State<CategoryScreen> {
-  @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: CategoryAppBar(name: widget.name,),
-      body: Center(
-        child: ElevatedButton(
-          onPressed: () => ProductDialog.show(context),
-          child: Text('Go to dialog'),
-        ),
+      appBar: CategoryAppBar(name: name),
+      body: BlocBuilder<DishesBloc, DishesState>(
+        builder: (context, state) {
+          if (state is DishesInitial) {
+            context.read<DishesBloc>().add(const DishesInitialFetched());
+            return _buildLoading();
+          } else if (state is DishesSuccess) {
+            return Column(
+              children: [
+                DishTagList(
+                  dishTagList: state.dishesModel.dishTags,
+                  selectedDishTagIndex: state.dishesModel.selectedDishTagIndex,
+                ),
+                DishesList(dishes: state.dishesModel.dishesFiltered),
+              ],
+            );
+          } else {
+            return _buildError();
+          }
+        },
       ),
     );
   }
-}
 
+  _buildLoading() {
+    return const Center(
+      child: CircularProgressIndicator(),
+    );
+  }
+
+  _buildError() {
+    return const Center(
+      child: Text('Произошла ошибка, \n попробуйте позже'),
+    );
+  }
+}

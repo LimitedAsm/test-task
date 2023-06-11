@@ -17,7 +17,10 @@ class CategoryAppBar extends StatelessWidget implements PreferredSizeWidget {
     return CustomAppBar(
       title: Text(
         name,
-        style: Theme.of(context).textTheme.titleMedium,
+        style: Theme
+            .of(context)
+            .textTheme
+            .titleMedium,
       ),
       centerTitle: true,
       leading: IconButton(

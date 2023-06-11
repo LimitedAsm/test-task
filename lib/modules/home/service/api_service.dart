@@ -2,6 +2,7 @@ import 'package:dio/dio.dart';
 import 'package:retrofit/retrofit.dart';
 
 import '../models/categories_list.dart';
+import '../models/dishes_list.dart';
 
 part 'api_service.g.dart';
 
@@ -12,6 +13,6 @@ abstract class ApiService {
   @GET('058729bd-1402-4578-88de-265481fd7d54')
   Future<CategoriesList> retrieveCategoriesList();
 
-// @GET('aba7ecaa-0a70-453b-b62d-0e326c859b3b')
-// Future<Dish> retrieveDishesList();
+  @GET('aba7ecaa-0a70-453b-b62d-0e326c859b3b')
+  Future<DishesList> retrieveDishesList();
 }
