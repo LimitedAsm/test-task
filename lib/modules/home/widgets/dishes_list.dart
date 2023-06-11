@@ -4,7 +4,10 @@ import '../models/dish.dart';
 import 'dish_preview.dart';
 
 class DishesList extends StatelessWidget {
-  const DishesList({super.key, required this.dishes});
+  const DishesList({
+    super.key,
+    required this.dishes,
+  });
 
   final List<Dish> dishes;
 

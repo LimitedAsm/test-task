@@ -10,9 +10,9 @@ class CategoriesList {
     required this.categories,
   });
 
-  @JsonKey(name: 'сategories')
-  List<Category> categories;
-
   factory CategoriesList.fromJson(Map<String, dynamic> json) =>
       _$CategoriesListFromJson(json);
+
+  @JsonKey(name: 'сategories')
+  List<Category> categories;
 }

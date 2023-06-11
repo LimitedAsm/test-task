@@ -10,8 +10,8 @@ class DishesList {
     required this.dishes,
   });
 
-  List<Dish> dishes;
-
   factory DishesList.fromJson(Map<String, dynamic> json) =>
       _$DishesListFromJson(json);
+
+  List<Dish> dishes;
 }

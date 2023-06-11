@@ -14,7 +14,7 @@ class CategoryPreview extends StatelessWidget {
       child: GestureDetector(
         onTap: () => Navigator.push(
           context,
-          MaterialPageRoute(builder: (BuildContext context) {
+          MaterialPageRoute<void>(builder: (BuildContext context) {
             return CategoryScreen(
               name: category.name,
             );
@@ -38,8 +38,8 @@ class CategoryPreview extends StatelessWidget {
     );
   }
 
-  Widget _buildName(context) {
-    double halfWidthScreen = MediaQuery.of(context).size.width / 2;
+  Widget _buildName(BuildContext context) {
+    final double halfWidthScreen = MediaQuery.of(context).size.width / 2;
     return Container(
       constraints: BoxConstraints(maxWidth: halfWidthScreen),
       child: Padding(

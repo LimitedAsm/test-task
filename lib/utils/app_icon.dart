@@ -1,8 +1,12 @@
+//ignore_for_file: non_constant_identifier_names
+
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:flutter_svg/svg.dart';
 
 class AppIcons {
+  const AppIcons();
+
   static Widget home({Color? color}) => svgFromAsset('home', color: color);
 
   static Widget search({Color? color}) => svgFromAsset('search', color: color);
@@ -19,16 +23,18 @@ class AppIcons {
   static final Widget increase = svgFromAsset('increase');
   static final Widget decrease = svgFromAsset('decrease');
 
-  static svgFromAsset(String name, {Color? color}) {
+  static Widget svgFromAsset(String name, {Color? color}) {
+    ColorFilter? colorFilter;
+    if (color != null) {
+      colorFilter = ColorFilter.mode(
+        color,
+        BlendMode.srcIn,
+      );
+    }
+
     return SvgPicture.asset(
       'assets/icons/$name.svg',
-      // color: color,
-      colorFilter: color != null
-          ? ColorFilter.mode(
-              color,
-              BlendMode.srcIn,
-            )
-          : null,
+      colorFilter: colorFilter,
       semanticsLabel: name,
     );
   }

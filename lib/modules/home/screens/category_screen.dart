@@ -42,13 +42,13 @@ class CategoryScreen extends StatelessWidget {
     );
   }
 
-  _buildLoading() {
+  Widget _buildLoading() {
     return const Center(
       child: CircularProgressIndicator(),
     );
   }
 
-  _buildError() {
+  Widget _buildError() {
     return const Center(
       child: Text('Произошла ошибка, \n попробуйте позже'),
     );

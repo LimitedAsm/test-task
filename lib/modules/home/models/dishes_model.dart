@@ -31,7 +31,7 @@ class DishesModel {
 
   List<Dish> get dishesFiltered {
     final List<Dish> dishesFiltered = [];
-    for (Dish dish in dishes) {
+    for (final Dish dish in dishes) {
       if (dish.tags.contains(selectedDishTag)) {
         dishesFiltered.add(dish);
       }
@@ -52,10 +52,10 @@ class DishesModel {
   }
 
   static List<DishTag> _calculateDishesTags(List<Dish> dishes) {
-    List<DishTag> tags = [];
-    for (Dish dish in dishes) {
+    final List<DishTag> tags = [];
+    for (final Dish dish in dishes) {
       final dishTags = dish.tags;
-      for (DishTag tag in dishTags) {
+      for (final DishTag tag in dishTags) {
         if (!tags.contains(tag)) {
           tags.add(tag);
         }

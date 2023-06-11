@@ -2,8 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
 import '../bloc/dishes/dishes_bloc.dart';
-import 'dish_tag.dart';
 import '../models/dish_tag.dart' as model;
+import 'dish_tag.dart';
 
 class DishTagList extends StatelessWidget {
   const DishTagList({

@@ -12,7 +12,7 @@ class LocationAppBar extends StatelessWidget implements PreferredSizeWidget {
     );
   }
 
-  Widget _buildLocation(context) {
+  Widget _buildLocation(BuildContext context) {
     return Row(
       children: [
         Padding(
@@ -22,7 +22,7 @@ class LocationAppBar extends StatelessWidget implements PreferredSizeWidget {
         Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            Text('Санкт-Петербург'),
+            const Text('Санкт-Петербург'),
             Text(
               '12 Августа, 2023',
               style: Theme.of(context).textTheme.titleSmall?.copyWith(

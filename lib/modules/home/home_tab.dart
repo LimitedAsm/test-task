@@ -20,8 +20,7 @@ AppTab buildHomeTab(BuildContext context) {
       ],
       child: Navigator(
         onGenerateRoute: (settings) {
-          Widget page = const HomeScreen();
-          return MaterialPageRoute(builder: (_) => page);
+          return MaterialPageRoute(builder: (_) => const HomeScreen());
         },
       ),
     ),

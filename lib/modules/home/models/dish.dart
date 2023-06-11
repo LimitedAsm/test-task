@@ -16,6 +16,8 @@ class Dish {
     required this.tags,
   });
 
+  factory Dish.fromJson(Map<String, dynamic> json) => _$DishFromJson(json);
+
   int id;
   String name;
   int price;
@@ -25,6 +27,4 @@ class Dish {
 
   @JsonKey(name: 'tegs')
   List<DishTag> tags;
-
-  factory Dish.fromJson(Map<String, dynamic> json) => _$DishFromJson(json);
 }

@@ -12,10 +12,10 @@ class Category {
     required this.imageUrl,
   });
 
+  factory Category.fromJson(Map<String, dynamic> json) =>
+      _$CategoryFromJson(json);
+
   int id;
   CategoryName name;
   String imageUrl;
-
-  factory Category.fromJson(Map<String, dynamic> json) =>
-      _$CategoryFromJson(json);
 }
