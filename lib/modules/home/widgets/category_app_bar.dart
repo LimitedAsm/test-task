@@ -15,13 +15,7 @@ class CategoryAppBar extends StatelessWidget implements PreferredSizeWidget {
   @override
   Widget build(BuildContext context) {
     return CustomAppBar(
-      title: Text(
-        name,
-        style: Theme
-            .of(context)
-            .textTheme
-            .titleMedium,
-      ),
+      title: Text(name),
       centerTitle: true,
       leading: IconButton(
         icon: AppIcons.arrow_back,

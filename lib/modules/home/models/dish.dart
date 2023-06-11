@@ -1,3 +1,4 @@
+import 'package:flutter/widgets.dart';
 import 'package:json_annotation/json_annotation.dart';
 
 import 'dish_tag.dart';
@@ -24,7 +25,8 @@ class Dish {
   int weight;
   String description;
   String imageUrl;
-
   @JsonKey(name: 'tegs')
   List<DishTag> tags;
+
+  ImageProvider get image => NetworkImage(imageUrl);
 }

@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:test_task/widgets/dish_preview_image.dart';
 
 import '../models/dish.dart';
-import 'product_dialog.dart';
+import 'dish_dialog.dart';
 
 class DishPreview extends StatelessWidget {
   const DishPreview({
@@ -14,7 +15,10 @@ class DishPreview extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
-      onTap: () => ProductDialog.show(context),
+      onTap: () => DishDialog.show(
+        context: context,
+        dish: dish,
+      ),
       child: Container(
         margin: const EdgeInsets.symmetric(horizontal: 4),
         child: Column(
@@ -22,20 +26,7 @@ class DishPreview extends StatelessWidget {
           children: [
             AspectRatio(
               aspectRatio: 1,
-              child: Container(
-                margin: const EdgeInsets.only(bottom: 4),
-                decoration: BoxDecoration(
-                  color: Theme.of(context).colorScheme.surfaceVariant,
-                  borderRadius: const BorderRadius.all(Radius.circular(10)),
-                ),
-                child: Padding(
-                  padding: const EdgeInsets.all(12),
-                  child: Image.network(
-                    dish.imageUrl,
-                    fit: BoxFit.scaleDown,
-                  ),
-                ),
-              ),
+              child: DishPreviewImage(image: dish.image),
             ),
             Text(dish.name)
           ],
