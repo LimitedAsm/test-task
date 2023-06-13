@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 
+import '../utils/constants.dart';
+
 class DialogAction extends StatelessWidget {
   const DialogAction({
     super.key,
@@ -20,12 +22,9 @@ class DialogAction extends StatelessWidget {
           elevation: 0,
           padding: EdgeInsets.zero,
           minimumSize: size,
-          backgroundColor: Theme
-              .of(context)
-              .colorScheme
-              .background,
+          backgroundColor: Theme.of(context).colorScheme.background,
           shape: const RoundedRectangleBorder(
-            borderRadius: BorderRadius.all(Radius.circular(10)),
+            borderRadius: Constants.mediumBorderRadius,
           ),
         ),
         onPressed: onPressed,

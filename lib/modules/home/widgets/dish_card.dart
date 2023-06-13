@@ -5,8 +5,8 @@ import 'package:test_task/widgets/dish_preview_image.dart';
 
 import 'dish_dialog.dart';
 
-class DishPreview extends StatelessWidget {
-  const DishPreview({
+class DishCard extends StatelessWidget {
+  const DishCard({
     super.key,
     required this.dish,
   });

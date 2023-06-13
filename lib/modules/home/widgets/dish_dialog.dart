@@ -31,7 +31,6 @@ class DishDialog extends AlertDialog {
 
   @override
   Widget build(BuildContext context) {
-    const maxImageSize = Size(200, 200);
     return SimpleDialog(
       shape: const RoundedRectangleBorder(
         borderRadius: BorderRadius.all(
@@ -44,15 +43,11 @@ class DishDialog extends AlertDialog {
       title: Stack(
         children: [
           Container(
-            width: MediaQuery.of(context).size.width,
+            width: double.infinity,
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                DishPreviewImage(
-                  image: dish.image,
-                  size: maxImageSize,
-                  isExpanded: true,
-                ),
+                _buildPreviewImage(),
                 Text(dish.name),
                 _buildDishParameters(),
                 _buildDescription(context),
@@ -115,6 +110,16 @@ class DishDialog extends AlertDialog {
         price: dish.price,
         weight: dish.weight,
       ),
+    );
+  }
+
+  Widget _buildPreviewImage() {
+    const maxImageSize = Size(200, 200);
+
+    return DishPreviewImage(
+      image: dish.image,
+      size: maxImageSize,
+      isExpanded: true,
     );
   }
 }

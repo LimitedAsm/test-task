@@ -15,13 +15,16 @@ class CartDishesList extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Expanded(
-      child: ListView.builder(
-        itemCount: cartDishList.length,
-        itemBuilder: (BuildContext context, int index) {
-          return CartItemCard(
-            cartDish: cartDishList.elementAt(index),
-          );
-        },
+      child: Container(
+        margin: const EdgeInsets.only(left: 8, top: 8, right: 8),
+        child: ListView.builder(
+          itemCount: cartDishList.length,
+          itemBuilder: (BuildContext context, int index) {
+            return CartItemCard(
+              cartDish: cartDishList.elementAt(index),
+            );
+          },
+        ),
       ),
     );
   }

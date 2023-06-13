@@ -4,7 +4,7 @@ import 'package:test_task/modules/home/repository/categories.dart';
 import 'package:test_task/widgets/location_app_bar.dart';
 
 import '../bloc/category/categories_bloc.dart';
-import '../widgets/category_preview.dart';
+import '../widgets/category_card.dart';
 
 class HomeScreen extends StatefulWidget {
   const HomeScreen({super.key});
@@ -39,9 +39,10 @@ class _HomeScreenState extends State<HomeScreen>
                 return Column(
                   children: List.generate(
                     state.categories.length,
-                    (index) => CategoryPreview(
-                      category: state.categories.elementAt(index),
-                    ),
+                        (index) =>
+                        CategoryCard(
+                          category: state.categories.elementAt(index),
+                        ),
                   ),
                 );
               }

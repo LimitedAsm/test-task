@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 
+import '../utils/constants.dart';
+
 class AppButton extends StatelessWidget {
   const AppButton({
     super.key,
@@ -17,7 +19,7 @@ class AppButton extends StatelessWidget {
         elevation: 0,
         padding: const EdgeInsets.symmetric(vertical: 15),
         shape: const RoundedRectangleBorder(
-          borderRadius: BorderRadius.all(Radius.circular(10)),
+          borderRadius: Constants.mediumBorderRadius,
         ),
       ),
       onPressed: onPressed,

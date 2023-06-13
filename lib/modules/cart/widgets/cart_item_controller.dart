@@ -3,6 +3,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:test_task/bloc/cart/cart_bloc.dart';
 import 'package:test_task/models/cart_item.dart';
 import 'package:test_task/utils/app_icon.dart';
+import 'package:test_task/utils/constants.dart';
 
 class CartItemController extends StatelessWidget {
   const CartItemController({
@@ -17,7 +18,7 @@ class CartItemController extends StatelessWidget {
     const backgroundColor = Color.fromRGBO(239, 238, 236, 1);
     return Container(
       decoration: const BoxDecoration(
-        borderRadius: BorderRadius.all(Radius.circular(10)),
+        borderRadius: Constants.mediumBorderRadius,
         color: backgroundColor,
       ),
       child: Row(
@@ -49,7 +50,7 @@ class CartItemController extends StatelessWidget {
     required Widget child,
     required BuildContext context,
   }) {
-    return InkWell(
+    return GestureDetector(
       onTap: () => context.read<CartBloc>().add(event),
       child: Container(
         padding: const EdgeInsets.symmetric(horizontal: 6, vertical: 4),

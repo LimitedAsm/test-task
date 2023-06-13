@@ -15,15 +15,11 @@ class CartScreen extends StatelessWidget {
       builder: (context, state) {
         return Scaffold(
           appBar: const LocationAppBar(),
-          body: Container(
-            margin:
-                const EdgeInsets.only(left: 16, right: 16, bottom: 16, top: 8),
-            child: Column(
-              children: [
-                CartDishesList(cartDishList: state.cartItems),
-                _buildBuyButton(state.cartTotalPrice),
-              ],
-            ),
+          body: Column(
+            children: [
+              CartDishesList(cartDishList: state.cartItems),
+              _buildBuyButton(state.cartTotalPrice),
+            ],
           ),
         );
       },
@@ -31,7 +27,8 @@ class CartScreen extends StatelessWidget {
   }
 
   Widget _buildBuyButton(int price) {
-    return SizedBox(
+    return Container(
+      margin: const EdgeInsets.all(16),
       width: double.infinity,
       child: AppButton(
         child: Text('Оплатить $price ₽'),

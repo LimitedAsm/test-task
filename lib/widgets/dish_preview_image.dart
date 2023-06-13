@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 
+import '../utils/constants.dart';
+
 class DishPreviewImage extends StatelessWidget {
   const DishPreviewImage({
     super.key,
@@ -20,7 +22,7 @@ class DishPreviewImage extends StatelessWidget {
       width: isExpanded ? double.infinity : null,
       decoration: BoxDecoration(
         color: Theme.of(context).colorScheme.surfaceVariant,
-        borderRadius: const BorderRadius.all(Radius.circular(10)),
+        borderRadius: Constants.mediumBorderRadius,
       ),
       child: Align(
         child: Container(

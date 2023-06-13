@@ -17,27 +17,30 @@ class CartItemCard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final dish = cartDish.dish;
-    return Row(
-      children: [
-        Container(
-          margin: const EdgeInsets.only(right: 8),
-          child: DishPreviewImage(
-            image: dish.image,
-            size: const Size(62, 62),
-            padding: const EdgeInsets.all(8),
+    return Container(
+      margin: const EdgeInsets.all(8),
+      child: Row(
+        children: [
+          Container(
+            margin: const EdgeInsets.only(right: 8),
+            child: DishPreviewImage(
+              image: dish.image,
+              size: const Size(62, 62),
+              padding: const EdgeInsets.all(8),
+            ),
           ),
-        ),
-        Expanded(
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              Text(dish.name),
-              DishParameters(price: dish.price, weight: dish.weight),
-            ],
+          Expanded(
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Text(dish.name),
+                DishParameters(price: dish.price, weight: dish.weight),
+              ],
+            ),
           ),
-        ),
-        CartItemController(cartItem: cartDish),
-      ],
+          CartItemController(cartItem: cartDish),
+        ],
+      ),
     );
   }
 }

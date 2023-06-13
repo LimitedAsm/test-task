@@ -1,10 +1,11 @@
 import 'package:flutter/material.dart';
+import 'package:test_task/utils/constants.dart';
 
 import '../models/category.dart';
 import '../screens/category_screen.dart';
 
-class CategoryPreview extends StatelessWidget {
-  const CategoryPreview({super.key, required this.category});
+class CategoryCard extends StatelessWidget {
+  const CategoryCard({super.key, required this.category});
 
   final Category category;
 
@@ -21,11 +22,10 @@ class CategoryPreview extends StatelessWidget {
           }),
         ),
         child: Container(
+          width: double.infinity,
           margin: const EdgeInsets.symmetric(vertical: 4, horizontal: 16),
           decoration: const BoxDecoration(
-            borderRadius: BorderRadius.all(
-              Radius.circular(10),
-            ),
+            borderRadius: Constants.mediumBorderRadius,
           ),
           child: Stack(
             children: [
@@ -41,6 +41,7 @@ class CategoryPreview extends StatelessWidget {
   Widget _buildName(BuildContext context) {
     final double halfWidthScreen = MediaQuery.of(context).size.width / 2;
     return Container(
+      alignment: Alignment.topLeft,
       constraints: BoxConstraints(maxWidth: halfWidthScreen),
       child: Padding(
         padding: const EdgeInsets.only(left: 16, top: 12),

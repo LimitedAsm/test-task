@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:test_task/utils/constants.dart';
 
 import '../models/dish_tag.dart';
 
@@ -23,7 +24,7 @@ class DishTagButton extends StatelessWidget {
       alignment: Alignment.topCenter,
       padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 10),
       decoration: BoxDecoration(
-        borderRadius: const BorderRadius.all(Radius.circular(10)),
+        borderRadius: Constants.mediumBorderRadius,
         color: backgroundColor,
       ),
       child: Text(
