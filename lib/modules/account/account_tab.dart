@@ -5,7 +5,7 @@ import 'package:test_task/utils/app_icon.dart';
 
 AppTab buildAccountTab(BuildContext context) {
   return AppTab(
-    screen: Placeholder(),
+    screen: const Placeholder(),
     bottomNavigationBarItem: BottomNavigationBarItem(
       activeIcon:
           AppIcons.account(color: Theme.of(context).colorScheme.primary),

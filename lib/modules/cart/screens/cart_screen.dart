@@ -20,22 +20,23 @@ class CartScreen extends StatelessWidget {
                 const EdgeInsets.only(left: 16, right: 16, bottom: 16, top: 8),
             child: Column(
               children: [
-                CartDishesList(
-                  cartDishList: state.cartModel.cartItems,
-                ),
-                SizedBox(
-                  width: double.infinity,
-                  child: AppButton(
-                    child: Text('Оплатить ${state.cartModel.cartTotalPrice} ₽'),
-                    onPressed: () {},
-                  ),
-                ),
+                CartDishesList(cartDishList: state.cartItems),
+                _buildBuyButton(state.cartTotalPrice),
               ],
             ),
           ),
         );
       },
-      // ),
+    );
+  }
+
+  Widget _buildBuyButton(int price) {
+    return SizedBox(
+      width: double.infinity,
+      child: AppButton(
+        child: Text('Оплатить $price ₽'),
+        onPressed: () {},
+      ),
     );
   }
 }

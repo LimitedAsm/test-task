@@ -31,6 +31,7 @@ class DishDialog extends AlertDialog {
 
   @override
   Widget build(BuildContext context) {
+    const maxImageSize = Size(200, 200);
     return SimpleDialog(
       shape: const RoundedRectangleBorder(
         borderRadius: BorderRadius.all(
@@ -38,8 +39,7 @@ class DishDialog extends AlertDialog {
         ),
       ),
       insetPadding: const EdgeInsets.all(16),
-      titlePadding:
-          const EdgeInsets.only(left: 16, right: 16, top: 16, bottom: 16),
+      titlePadding: const EdgeInsets.all(16),
       contentPadding: const EdgeInsets.only(left: 16, right: 16, bottom: 16),
       title: Stack(
         children: [
@@ -50,47 +50,16 @@ class DishDialog extends AlertDialog {
               children: [
                 DishPreviewImage(
                   image: dish.image,
-                  size: const Size(200, 200),
+                  size: maxImageSize,
                   isExpanded: true,
                 ),
                 Text(dish.name),
-                Padding(
-                  padding: const EdgeInsets.symmetric(vertical: 8),
-                  child: DishParameters(
-                    price: dish.price,
-                    weight: dish.weight,
-                  ),
-                ),
-                Text(
-                  dish.description,
-                  style: DefaultTextStyle.of(context).style.copyWith(
-                        color: DefaultTextStyle.of(context)
-                            .style
-                            .color
-                            ?.withOpacity(0.65),
-                      ),
-                ),
+                _buildDishParameters(),
+                _buildDescription(context),
               ],
             ),
           ),
-          Padding(
-            padding: const EdgeInsets.all(4),
-            child: Row(
-              mainAxisAlignment: MainAxisAlignment.end,
-              children: [
-                DialogAction(
-                  icon: AppIcons.favorite,
-                  onPressed: () {},
-                ),
-                DialogAction(
-                  icon: AppIcons.close,
-                  onPressed: () {
-                    Navigator.pop(context);
-                  },
-                ),
-              ],
-            ),
-          ),
+          _buildDialogActions(context),
         ],
       ),
       children: [
@@ -105,6 +74,47 @@ class DishDialog extends AlertDialog {
           ),
         )
       ],
+    );
+  }
+
+  Widget _buildDialogActions(BuildContext context) {
+    return Padding(
+      padding: const EdgeInsets.all(4),
+      child: Row(
+        mainAxisAlignment: MainAxisAlignment.end,
+        children: [
+          DialogAction(
+            icon: AppIcons.favorite,
+            onPressed: () {},
+          ),
+          DialogAction(
+            icon: AppIcons.close,
+            onPressed: () {
+              Navigator.pop(context);
+            },
+          ),
+        ],
+      ),
+    );
+  }
+
+  Widget _buildDescription(BuildContext context) {
+    final defaultTextStyle = DefaultTextStyle.of(context).style;
+    return Text(
+      dish.description,
+      style: defaultTextStyle.copyWith(
+        color: defaultTextStyle.color?.withOpacity(0.65),
+      ),
+    );
+  }
+
+  Widget _buildDishParameters() {
+    return Padding(
+      padding: const EdgeInsets.symmetric(vertical: 8),
+      child: DishParameters(
+        price: dish.price,
+        weight: dish.weight,
+      ),
     );
   }
 }

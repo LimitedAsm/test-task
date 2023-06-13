@@ -6,8 +6,8 @@ import 'package:test_task/widgets/dish_preview_image.dart';
 
 import 'cart_item_controller.dart';
 
-class CartDishCard extends StatelessWidget {
-  const CartDishCard({
+class CartItemCard extends StatelessWidget {
+  const CartItemCard({
     super.key,
     required this.cartDish,
   });

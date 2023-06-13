@@ -14,7 +14,7 @@ class DishesList extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     const gridCount = 3;
-    final gridHeight = MediaQuery.of(context).size.width / gridCount + 34;
+    final gridHeight = MediaQuery.of(context).size.width / gridCount + 35;
 
     return Expanded(
       child: GridView.builder(

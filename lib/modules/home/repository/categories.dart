@@ -1,6 +1,6 @@
 import 'package:dio/dio.dart';
 
-import '../models/categories_list.dart';
+import '../models/category.dart';
 import '../service/api_service.dart';
 
 class CategoriesRepository {
@@ -12,7 +12,9 @@ class CategoriesRepository {
     ),
   );
 
-  Future<CategoriesList> retrieveCategoriesList() {
-    return service.retrieveCategoriesList();
+  Future<List<Category>> retrieveCategoriesList() {
+    return service
+        .retrieveCategoriesList()
+        .then((categories) => categories.categories);
   }
 }

@@ -1,10 +1,10 @@
 part of 'cart_bloc.dart';
 
-class CartState extends Equatable {
-  const CartState({required this.cartModel});
+class CartState {
+  CartState({required this.cartItems});
 
-  final CartModel cartModel;
+  final List<CartItem> cartItems;
 
-  @override
-  List<Object> get props => [cartModel];
+  int get cartTotalPrice =>
+      cartItems.fold(0, (value, item) => value + item.dish.price * item.count);
 }

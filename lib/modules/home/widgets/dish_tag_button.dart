@@ -14,12 +14,11 @@ class DishTagButton extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final Color backgroundColor = isSelected
-        ? Theme.of(context).colorScheme.primary
-        : Theme.of(context).colorScheme.surfaceVariant;
-    final textColor = isSelected
-        ? Theme.of(context).colorScheme.onPrimary
-        : Theme.of(context).colorScheme.onBackground;
+    final colorScheme = Theme.of(context).colorScheme;
+    final backgroundColor =
+        isSelected ? colorScheme.primary : colorScheme.surfaceVariant;
+    final textColor =
+        isSelected ? colorScheme.onPrimary : colorScheme.onBackground;
     return Container(
       alignment: Alignment.topCenter,
       padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 10),
@@ -29,9 +28,8 @@ class DishTagButton extends StatelessWidget {
       ),
       child: Text(
         tag,
-        style: Theme.of(context).textTheme.bodyMedium?.copyWith(
-              color: textColor,
-            ),
+        style:
+            Theme.of(context).textTheme.bodyMedium?.copyWith(color: textColor),
       ),
     );
   }

@@ -13,14 +13,14 @@ class CartItem extends Equatable {
   final int count;
 
   CartItem increase() {
-    return copyWith(count: count + 1);
+    return _copyWith(count: count + 1);
   }
 
   CartItem decrease() {
-    return copyWith(count: count - 1);
+    return _copyWith(count: count - 1);
   }
 
-  CartItem copyWith({
+  CartItem _copyWith({
     Dish? dish,
     int? count,
   }) {
