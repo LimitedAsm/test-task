@@ -14,15 +14,11 @@ class DishParameters extends StatelessWidget {
   Widget build(BuildContext context) {
     final formattedPrice = _formatPriceString(price.toString());
     final formattedWeight = _formatWeightString(weight.toString());
-    // final defaultTextStyle = DefaultTextStyle
-    //     .of(context)
-    //     .style;
     final defaultTextStyle = Theme.of(context).textTheme.bodyMedium;
     final customColor = defaultTextStyle?.color?.withOpacity(0.4);
     final customTextStyle = defaultTextStyle?.copyWith(color: customColor);
 
     return RichText(
-      textAlign: TextAlign.start,
       text: TextSpan(
         text: formattedPrice,
         style: defaultTextStyle,

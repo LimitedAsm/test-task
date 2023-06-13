@@ -1,6 +1,6 @@
 import 'package:json_annotation/json_annotation.dart';
 
-import 'dish.dart';
+import 'package:test_task/models/dish.dart';
 
 part 'dishes_list.g.dart';
 

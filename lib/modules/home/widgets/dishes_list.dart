@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-import '../models/dish.dart';
+import 'package:test_task/models/dish.dart';
 import 'dish_preview.dart';
 
 class DishesList extends StatelessWidget {

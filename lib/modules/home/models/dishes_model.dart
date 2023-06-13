@@ -1,4 +1,5 @@
-import 'dish.dart';
+import 'package:test_task/models/dish.dart';
+
 import 'dish_tag.dart';
 
 class DishesModel {

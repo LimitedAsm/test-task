@@ -2,8 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
 import '../bloc/dishes/dishes_bloc.dart';
-import '../models/dish_tag.dart' as model;
-import 'dish_tag.dart';
+import '../models/dish_tag.dart';
+import 'dish_tag_button.dart';
 
 class DishTagList extends StatelessWidget {
   const DishTagList({
@@ -12,7 +12,7 @@ class DishTagList extends StatelessWidget {
     required this.selectedDishTagIndex,
   });
 
-  final List<model.DishTag> dishTagList;
+  final List<DishTag> dishTagList;
   final int selectedDishTagIndex;
 
   @override
@@ -32,7 +32,7 @@ class DishTagList extends StatelessWidget {
               onTap: () => context
                   .read<DishesBloc>()
                   .add(SelectedDishTagChanged(selectedDishTagIndex: index)),
-              child: DishTag(
+              child: DishTagButton(
                 tag: dishTagList.elementAt(index),
                 isSelected: selectedDishTagIndex == index,
               ),

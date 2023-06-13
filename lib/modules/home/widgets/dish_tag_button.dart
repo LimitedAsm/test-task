@@ -1,15 +1,15 @@
 import 'package:flutter/material.dart';
 
-import '../models/dish_tag.dart' as model;
+import '../models/dish_tag.dart';
 
-class DishTag extends StatelessWidget {
-  const DishTag({
+class DishTagButton extends StatelessWidget {
+  const DishTagButton({
     super.key,
     required this.tag,
     this.isSelected = false,
   });
 
-  final model.DishTag tag;
+  final DishTag tag;
   final bool isSelected;
 
   @override

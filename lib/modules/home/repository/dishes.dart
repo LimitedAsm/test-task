@@ -1,6 +1,7 @@
 import 'package:dio/dio.dart';
 
-import '../models/dish.dart';
+import 'package:test_task/models/dish.dart';
+
 import '../service/api_service.dart';
 
 class DishesRepository {

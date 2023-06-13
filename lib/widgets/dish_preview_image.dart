@@ -5,16 +5,19 @@ class DishPreviewImage extends StatelessWidget {
     super.key,
     required this.image,
     this.size,
+    this.isExpanded = false,
+    this.padding = const EdgeInsets.all(12),
   });
 
   final ImageProvider image;
   final Size? size;
+  final bool isExpanded;
+  final EdgeInsets padding;
 
   @override
   Widget build(BuildContext context) {
     return Container(
-      margin: const EdgeInsets.only(bottom: 4),
-      width: double.infinity,
+      width: isExpanded ? double.infinity : null,
       decoration: BoxDecoration(
         color: Theme.of(context).colorScheme.surfaceVariant,
         borderRadius: const BorderRadius.all(Radius.circular(10)),
@@ -23,7 +26,7 @@ class DishPreviewImage extends StatelessWidget {
         child: Container(
           width: size?.width,
           height: size?.height,
-          padding: const EdgeInsets.all(12),
+          padding: padding,
           child: Image(image: image),
         ),
       ),

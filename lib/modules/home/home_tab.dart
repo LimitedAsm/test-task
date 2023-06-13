@@ -10,14 +10,10 @@ import 'screens/home_screen.dart';
 
 AppTab buildHomeTab(BuildContext context) {
   return AppTab(
-    screen: MultiBlocProvider(
-      providers: [
-        BlocProvider(
-          create: (_) => DishesBloc(
-            DishesRepository(),
-          ),
-        ),
-      ],
+    screen: BlocProvider(
+      create: (_) => DishesBloc(
+        DishesRepository(),
+      ),
       child: Navigator(
         onGenerateRoute: (settings) {
           return MaterialPageRoute(builder: (_) => const HomeScreen());

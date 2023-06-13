@@ -1,10 +1,13 @@
 import 'package:flutter/material.dart';
-import 'package:test_task/utils/app_icon.dart';
-import 'package:test_task/widgets/dialog_action.dart';
-import 'package:test_task/widgets/dish_parametrs.dart';
-import 'package:test_task/widgets/dish_preview_image.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:test_task/bloc/cart/cart_bloc.dart';
 
-import '../models/dish.dart';
+import 'package:test_task/models/dish.dart';
+import 'package:test_task/utils/app_icon.dart';
+import 'package:test_task/widgets/app_button.dart';
+import 'package:test_task/widgets/dialog_action.dart';
+import 'package:test_task/widgets/dish_parameters.dart';
+import 'package:test_task/widgets/dish_preview_image.dart';
 
 class DishDialog extends AlertDialog {
   const DishDialog({
@@ -48,6 +51,7 @@ class DishDialog extends AlertDialog {
                 DishPreviewImage(
                   image: dish.image,
                   size: const Size(200, 200),
+                  isExpanded: true,
                 ),
                 Text(dish.name),
                 Padding(
@@ -92,26 +96,14 @@ class DishDialog extends AlertDialog {
       children: [
         SimpleDialogOption(
           padding: EdgeInsets.zero,
-          onPressed: () {
-            Navigator.pop(context);
-          },
-          child: Container(
-              padding: const EdgeInsets.symmetric(vertical: 15),
-              decoration: BoxDecoration(
-                borderRadius: BorderRadius.all(
-                  Radius.circular(10),
-                ),
-                color: Theme.of(context).colorScheme.primary,
-              ),
-              width: double.infinity,
-              child: Text(
-                'Добавить в корзину',
-                style: Theme.of(context).textTheme.titleMedium?.copyWith(
-                      color: Theme.of(context).colorScheme.onPrimary,
-                    ),
-                textAlign: TextAlign.center,
-              )),
-        ),
+          onPressed: () {},
+          child: AppButton(
+            onPressed: () {
+              context.read<CartBloc>().add(CartItemCountIncreased(dish: dish));
+            },
+            child: const Text('Добавить в корзину'),
+          ),
+        )
       ],
     );
   }

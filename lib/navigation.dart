@@ -16,7 +16,7 @@ class NavigationScreen extends StatefulWidget {
 class _NavigationScreenState extends State<NavigationScreen> {
   int _selectedIndex = 0;
 
-  final PageController _pageController = PageController(initialPage: 0);
+  final PageController _pageController = PageController();
 
   void _onItemTapped(int index) {
     setState(() {

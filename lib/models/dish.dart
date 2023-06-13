@@ -1,7 +1,7 @@
 import 'package:flutter/widgets.dart';
 import 'package:json_annotation/json_annotation.dart';
 
-import 'dish_tag.dart';
+import '../modules/home/models/dish_tag.dart';
 
 part 'dish.g.dart';
 
